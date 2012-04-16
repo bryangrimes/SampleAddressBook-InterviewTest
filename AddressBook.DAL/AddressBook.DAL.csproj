@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B5E08363-D319-4936-B5B8-142106B408D6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AddressBook.DAL</RootNamespace>
+    <AssemblyName>AddressBook.DAL</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL" />
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL" />
+    <Reference Include="NHibernate, Version=3.2.0.2002, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataRepositories\BaseRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Access\NBHelper.cs" />
+    <Compile Include="DataRepositories\IBaseAccess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataRepositories\TagDataRepository.cs" />
+    <Compile Include="DataRepositories\ITagDataRepository.cs" />
+    <Compile Include="Domain\AddressData.cs" />
+    <Compile Include="Domain\TagData.cs" />
+    <Compile Include="Domain\BaseData.cs" />
+    <Compile Include="Domain\UserData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataRepositories\AddressDataRepository.cs" />
+    <Compile Include="DataRepositories\IAddressDataRepository.cs" />
+    <Compile Include="DataRepositories\IUserDataRepository.cs" />
+    <Compile Include="DataRepositories\UserDataRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libs\nhibernate-configuration.xsd" />
+    <None Include="Libs\nhibernate-mapping.xsd" />
+    <None Include="Model\addressbook.s3db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hibernate.cfg.xml" />
+    <Content Include="Libs\Castle.ActiveRecord.dll" />
+    <Content Include="Libs\Castle.Core.dll" />
+    <Content Include="Libs\Castle.DynamicProxy2.dll" />
+    <Content Include="Libs\Castle.Windsor.dll" />
+    <Content Include="Libs\Dynamic.dll" />
+    <Content Include="Libs\Iesi.Collections.dll" />
+    <Content Include="Libs\Iesi.Collections.xml" />
+    <Content Include="Libs\log4net.dll" />
+    <Content Include="Libs\Lucene.Net.dll" />
+    <Content Include="Libs\NHibernate.ByteCode.Castle.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\NHibernate.dll" />
+    <Content Include="Libs\NHibernate.Search.dll" />
+    <Content Include="Libs\NHibernate.xml" />
+    <Content Include="Libs\nunit.core.dll" />
+    <Content Include="Libs\nunit.framework.dll" />
+    <EmbeddedResource Include="Mappings\Tag.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Address.hbm.xml" />
+    <EmbeddedResource Include="Mappings\User.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

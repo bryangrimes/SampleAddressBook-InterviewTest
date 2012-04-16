@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="AddressBook.DAL"
+                   namespace="AddressBook.DAL.Domain">
+
+  <class name="TagData" table="Tag">
+    <id name="Id" type="System.Int32" column="Id" >
+      <generator class="native"/>
+    </id>
+    <property name="Name" />
+    <property name="WhatId" />
+
+    <!--<bag name="Tags" inverse="true" cascade="all" generic="true">
+      <key column="WhatId" />
+      <one-to-many class="TagData"/> 
+    </bag>-->
+    
+  </class>
+
+
+</hibernate-mapping>

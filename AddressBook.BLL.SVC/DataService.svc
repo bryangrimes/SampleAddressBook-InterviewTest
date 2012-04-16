@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="DataService.svc.cs" Class="AddressBook.BLL.SVC.Service1" %>

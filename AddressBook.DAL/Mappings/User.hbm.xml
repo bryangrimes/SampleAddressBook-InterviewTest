@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="AddressBook.DAL"
+                   namespace="AddressBook.DAL.Domain">
+
+  <class name="UserData" table="User">
+    <id name="Id" type="System.Int32" column="Id" >
+      <generator class="native"/>
+    </id>
+    <property name="Email" />
+    <property name="FirstName" />
+    <property name="LastName" />
+    <property name="Notes" />
+    <property name="Favorite" type="boolean" />
+
+    <bag name="Addresses" inverse="true" cascade="all" generic="true" lazy="false">
+      <key column="UserId" />
+      <one-to-many class="AddressData"/>
+    </bag>
+
+    <bag name="Tags" inverse="true" cascade="all" generic="true" lazy="false">
+      <key column="WhatId" />
+      <one-to-many class="TagData"/>
+    </bag>
+         
+  </class>
+ 
+
+</hibernate-mapping>
